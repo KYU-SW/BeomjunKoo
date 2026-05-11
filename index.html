@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hanseob Kim | DXP Lab</title>
+    <title>Beomjun Koo | DXP Lab</title>
     <!-- 폰트어썸 (아이콘) 무료 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 구글 폰트 (Pretendard 대체용 널리 쓰이는 Noto Sans KR) -->
@@ -18,6 +19,7 @@
             --text-color: #333333;
             --text-light: #666666;
             --bg-color: #f4f7f6;
+            --accent-color: #e8f5e9;
             --white: #ffffff;
             --transition: all 0.3s ease;
         }
@@ -48,6 +50,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
+            padding: 0.8rem 5%;
             z-index: 1000;
         }
 
@@ -65,6 +68,7 @@
             list-style: none;
             display: flex;
             gap: 20px;
+            gap: 10px;
         }
 
         .nav-links a {
@@ -72,6 +76,8 @@
             color: var(--text-color);
             font-weight: 500;
             padding: 8px 16px;
+            padding: 6px 12px;
+            font-size: 0.9rem;
             border-radius: 20px;
             transition: var(--transition);
         }
@@ -91,11 +97,25 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: var(--white);
             padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .hero h1 {
             font-size: 2.8rem;
+            font-size: 2.5rem;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            object-fit: cover;
             margin-bottom: 1rem;
         }
 
@@ -103,6 +123,11 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
+        .hero .tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            max-width: 700px;
+            line-height: 1.4;
         }
 
         .container {
@@ -114,8 +139,11 @@
 
         /* About Section */
         .about-card {
+        .section-box {
             background: var(--white);
             border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
             padding: 2.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             margin-bottom: 3rem;
@@ -123,8 +151,16 @@
         }
 
         .about-card h2 {
+        .section-title {
             color: var(--primary-color);
             margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
         }
 
         /* Cards Layout (CSS Grid) */
@@ -132,6 +168,31 @@
             text-align: center;
             margin-bottom: 2rem;
             color: var(--text-color);
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .info-item h4 { color: var(--primary-color); margin-bottom: 5px; }
+
+        /* Lists and Chips */
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .chip {
+            background: var(--accent-color);
+            color: var(--primary-dark);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .card-grid {
@@ -162,6 +223,7 @@
 
         .card-content {
             padding: 1.5rem;
+            padding: 1.2rem;
         }
 
         .card-content i {
@@ -178,9 +240,16 @@
         .card-content p {
             color: var(--text-light);
             font-size: 0.95rem;
+            margin-bottom: 10px;
         }
 
         /* Contact Section */
+        .card-footer {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
         .contact-section {
             text-align: center;
             background: var(--white);
@@ -246,6 +315,14 @@
         <li><a href="#" class="active"><i class="fa-solid fa-wand-magic-sparkles"></i> 현재 페이지 (Modern)</a></li>
         <!-- 이전 페이지 파일명을 old.html 혹은 previous.html 로 맞추어 학생들에게 링크 이동을 시연하시면 됩니다 -->
         <li><a href="index_initial.html"><i class="fa-solid fa-clock-rotate-left"></i> 이전 페이지 (Basic)</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
@@ -253,22 +330,65 @@
 <header class="hero">
     <h1>Hanseob Kim</h1>
     <p class="role">Professor & Director of DXP Lab</p>
+<!-- Home Section -->
+<header class="hero" id="home">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Profile" class="profile-img">
+    <h1>Beomjun Koo</h1>
+    <p class="tagline">가상과 현실의 경계를 허물어 인간의 경험을 확장하는 XR 기술 전문가를 꿈꿉니다.</p>
 </header>
 
 <main class="container">
     <!-- About Section -->
     <section class="about-card">
         <h2><i class="fa-solid fa-user-tie"></i> About Me</h2>
+    <section class="section-box" id="about">
+        <h2 class="section-title"><i class="fa-solid fa-user"></i> About Me</h2>
         <p>
             인간과 컴퓨터의 상호작용(HCI)을 연구하며, 가상현실(VR) 및 증강현실(AR) 환경에서의 
             사용자 경험 개선과 <strong>사이버멀미(Cybersickness) 저감 기술</strong>에 집중하고 있습니다. 
             데이터 전처리 및 분석 역량을 바탕으로 국방(National Defense) 및 의료 등 다양한 도메인을 위한 초실감형 몰입 기술을 탐구합니다.
+            안녕하세요! 저는 사용자 중심의 기술로 더 나은 세상을 만들고자 하는 연구자입니다. 
+            복잡한 문제를 데이터 기반으로 분석하고, 사용자 경험을 최적화하는 데 깊은 관심을 가지고 있습니다.
         </p>
+        <div class="info-grid">
+            <div class="info-item">
+                <h4><i class="fa-solid fa-university"></i> 소속</h4>
+                <p>건양대학교 국방 XR학부 <br>DXP Lab (Digital eXperience & Platform)</p>
+            </div>
+            <div class="info-item">
+                <h4><i class="fa-solid fa-magnifying-glass"></i> 관심 분야</h4>
+                <p>HCI, AI,XR기술</p>
+            </div>
+            <div class="info-item">
+                <h4><i class="fa-solid fa-star"></i> 성격 및 강점</h4>
+                <p>끈기 있는 문제 해결력, 원활한 협업 및 의사소통</p>
+            </div>
+        </div>
     </section>
 
     <h2 class="section-title">Research Interests</h2>
     
     <!-- Cards Section -->
+    <!-- Vision Section -->
+    <section class="section-box" id="vision">
+        <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Vision</h2>
+        <p><strong>진로 목표:</strong> 차세대 메타버스 개발자</p>
+        <p style="margin-top:10px;">단순히 신기술을 적용하는 것을 넘어, 사용자의 심리적·신체적 편의성을 극대화한 몰입형 콘텐츠를 개발하여 디지털 격차를 해소하는 전문가가 되고자 합니다.</p>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="section-box" id="courses">
+        <h2 class="section-title"><i class="fa-solid fa-book-open"></i> Courses</h2>
+        <ul class="chip-group">
+            <li class="chip">가상현실 및 실습</li>
+            <li class="chip">데이터 사이언스 기초</li>
+            <li class="chip">인간컴퓨터상호작용(HCI)</li>
+            <li class="chip">인공지능 응용</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <h2 class="section-title" id="projects" style="margin-left: 10px; border-bottom: none;"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
     <section class="card-grid">
         <!-- Card 1 -->
         <article class="card">
@@ -277,6 +397,9 @@
                 <i class="fa-solid fa-shield-halved"></i>
                 <h3>XR for National Defense</h3>
                 <p>국방 훈련을 위한 초실감형 메타버스 인터페이스 연구 및 인공지능 기반 인간 검증 데이터셋 구축.</p>
+                <h3>국방 VR 훈련 시뮬레이터</h3>
+                <p>분대 단위 전술 훈련을 위한 가상 환경 구축 및 인터렉션 설계.</p>
+                <div class="card-footer">Role: Unity Developer | 결과물: 시나리오 구동형 앱</div>
             </div>
         </article>
 
@@ -287,8 +410,12 @@
                 <i class="fa-solid fa-eye"></i>
                 <h3>Cybersickness Mitigation</h3>
                 <p>시선 추적(Eye-tracking) 및 시각/햅틱 피드백을 활용한 자율주행 및 VR 환경 내 사이버멀미 분석 및 저감 솔루션.</p>
+                <h3>사이버멀미 분석 솔루션</h3>
+                <p>시선 추적 데이터를 활용한 사용자의 멀미 정도 실시간 예측 AI 모델.</p>
+                <div class="card-footer">Role: Data Analyst | 결과물: 분석 알고리즘</div>
             </div>
         </article>
+    </section>
 
         <!-- Card 3 -->
         <article class="card">
@@ -297,16 +424,42 @@
                 <i class="fa-solid fa-bed-pulse"></i>
                 <h3>Digital Therapeutics</h3>
                 <p>병상 환자(Bedridden Patients) 및 교통약자를 위한 VR 기반 치료/편의 기술 및 상호작용 인터페이스 설계.</p>
+    <!-- Skills Section -->
+    <section class="section-box" id="skills">
+        <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <h4>Software</h4>
+                <p>Unity, C#, Python, HTML/CSS, Javascript</p>
             </div>
         </article>
+            <div class="info-item">
+                <h4>Other Tools</h4>
+                <p>Git, Blender, Figma, SPSS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="section-box" id="activities">
+        <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> Activities</h2>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li>• <strong>DXP Lab 학부 연구생</strong> (2023.03 - 현재)</li>
+            <li>• <strong>HCI Korea 2024</strong> 학술대회 포스터 발표</li>
+            <li>• 교내 창의융합 <strong>공모전 최우수상</strong> 수상 (2023)</li>
+            <li>• VR 콘텐츠 제작 전문가 양성 과정 수료 (40시간)</li>
+        </ul>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section">
+    <section class="contact-section" id="contact">
         <h2>Let's Connect</h2>
         <p style="margin-top: 10px; color: var(--text-light);">연구 협력이나 DXP 연구실에 관심이 있으시다면 언제든 연락주세요.</p>
+        <p style="margin-top: 10px; color: var(--text-light);">질문이나 협업 제안은 언제든 환영합니다.</p>
         <div class="contact-links">
             <a href="mailto:example@korea.ac.kr" class="btn btn-fill">
+            <a href="mailto:your-email@example.com" class="btn btn-fill">
                 <i class="fa-solid fa-envelope"></i> Email Me
             </a>
             <a href="https://github.com" class="btn btn-outline" target="_blank">
@@ -314,6 +467,7 @@
             </a>
             <a href="#" class="btn btn-outline">
                 <i class="fa-solid fa-globe"></i> Lab Website
+                <i class="fa-solid fa-blog"></i> Blog
             </a>
         </div>
     </section>
@@ -321,6 +475,7 @@
 
 <footer>
     <p>&copy; 2026 Hanseob Kim & DXP Lab. All rights reserved.</p>
+    <p>&copy; 2026 Beomjun Koo & DXP Lab. All rights reserved.</p>
 </footer>
 
 </body>
